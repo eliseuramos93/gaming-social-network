@@ -1,5 +1,15 @@
 pt-BR:
   activerecord:
+    models:
+      user:
+        one: "Usuário"
+        other: "Usuários"
+    attributes:
+      user:
+        username: "Nome de usuário"
+        email: "E-mail"
+        password: "Senha"
+        password_confirmation: "Confirme sua senha"
     errors:
       models:
         user:
@@ -11,3 +21,5 @@ pt-BR:
                 blank: "não pode ficar em branco"
               password_confirmation:
                 confirmation: "não é igual a senha"
+              username:
+                blank: "não pode ficar em branco"

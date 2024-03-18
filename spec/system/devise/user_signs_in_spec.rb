@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'User signs up, starting from the homepage', type: :system do
   it 'successfully' do
-    User.create(email: 'patrick@mahomes.com', password: 'arrowhead15')
+    User.create(username: 'sheriff18', email: 'patrick@mahomes.com', password: 'arrowhead15')
 
     visit root_path
     click_on 'Login'
@@ -16,7 +16,7 @@ RSpec.describe 'User signs up, starting from the homepage', type: :system do
 
   context 'unsuccessfully if' do
     it 'fails to provide an e-mail address' do
-      User.create(email: 'patrick@mahomes.com', password: 'arrowhead15')
+      User.create(username: 'sheriff18', email: 'patrick@mahomes.com', password: 'arrowhead15')
 
       visit root_path
       click_on 'Login'
@@ -29,7 +29,7 @@ RSpec.describe 'User signs up, starting from the homepage', type: :system do
     end
 
     it 'provides an invalid e-mail address' do
-      User.create(email: 'patrick@mahomes.com', password: 'arrowhead15')
+      User.create(username: 'sheriff18', email: 'patrick@mahomes.com', password: 'arrowhead15')
 
       visit root_path
       click_on 'Login'
@@ -42,7 +42,7 @@ RSpec.describe 'User signs up, starting from the homepage', type: :system do
     end
 
     it 'fails to provide a password' do
-      User.create(email: 'patrick@mahomes.com', password: 'arrowhead15')
+      User.create(username: 'sheriff18', email: 'patrick@mahomes.com', password: 'arrowhead15')
 
       visit root_path
       click_on 'Login'
@@ -55,7 +55,7 @@ RSpec.describe 'User signs up, starting from the homepage', type: :system do
     end
 
     it 'provides an incorrect password' do
-      User.create(email: 'patrick@mahomes.com', password: 'arrowhead15')
+      User.create(username: 'sheriff18', email: 'patrick@mahomes.com', password: 'arrowhead15')
 
       visit root_path
       click_on 'Login'
