@@ -1,0 +1,4 @@
+pt-BR:
+  support:
+    array:
+      words_connector: ", "

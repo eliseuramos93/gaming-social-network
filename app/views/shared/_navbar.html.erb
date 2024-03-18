@@ -1,0 +1,14 @@
+<nav>
+    <div id="page-title">
+        <h1>GamingSocialNetwork</h1>
+    </div>
+    <div id="user-nav">
+        <% if user_signed_in? %>
+                <p><%= current_user.email %></p>
+                <p><%= button_to I18n.t('devise.shared.links.sign_out'), destroy_user_session_path, method: :delete %></p>
+        <% else %>
+            <p><%= link_to I18n.t('devise.shared.links.sign_up'), new_user_registration_path %></p>
+            <p><%= link_to I18n.t('devise.shared.links.sign_in'), new_user_session_path %></p>
+        <% end %>
+    </div>
+</nav>
