@@ -14,7 +14,7 @@ RSpec.describe 'User signs up, starting from the homepage', type: :system do
     expect(User.last.email).to eq 'billy@pampers.com'
     expect(page).to have_content('Bem vindo! Você realizou seu registro com sucesso.')
     expect(page).to have_current_path(root_path)
-    expect(page).to have_content 'billy@pampers.com'
+    expect(page).to have_content 'elBillyPampers'
     expect(page).to have_button 'Sair'
     expect(page).not_to have_link 'Inscrever-se', href: new_user_registration_path
     expect(page).not_to have_link 'Login', href: new_user_session_path
