@@ -13,6 +13,12 @@ COPY Gemfile Gemfile.lock ./
 # Instalando gems
 RUN bundle install
 
+# Instalando Chrome no container
+RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - 
+RUN sh -c 'echo "deb https://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+RUN apt-get update
+RUN apt-get install -y google-chrome-stable
+
 # Copiando o código para o contêiner
 COPY . .
 
