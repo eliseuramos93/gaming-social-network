@@ -1,0 +1,16 @@
+pt-BR:
+  activerecord:
+    models:
+      profile:
+        one: "Perfil"
+        other: "Perfis"
+    attributes:
+      profile:
+        bio: "E-mail"
+        birth_date: "Confirme sua senha"
+        country: "Senha"
+        full_name: "Nome completo"
+  profiles:
+    views:
+      show:
+        age: "%{age} anos"

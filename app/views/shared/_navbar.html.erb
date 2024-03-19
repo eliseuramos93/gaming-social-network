@@ -1,6 +1,8 @@
 <nav>
     <div id="page-title">
-        <h1>GamingSocialNetwork</h1>
+        <%= link_to root_path do%>
+            <h1>GamingSocialNetwork</h1>
+        <% end %>
     </div>
     <div id="user-nav">
         <% if user_signed_in? %>
