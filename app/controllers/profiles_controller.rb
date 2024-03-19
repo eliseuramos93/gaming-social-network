@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
-  before_action :authenticate_user!, only: %i[show]
+  before_action :authenticate_user!, only: %i[show edit update]
   before_action :fetch_profile_by_id, only: %i[show edit update]
+  before_action :redirect_unauthorized_user, only: %i[edit update]
 
   def show; end
 
@@ -18,5 +19,9 @@ class ProfilesController < ApplicationController
 
   def fetch_profile_by_id
     @profile = Profile.find(params[:id])
+  end
+
+  def redirect_unauthorized_user
+    redirect_to root_path, alert: t('alerts.unauthorized') unless current_user.profile == @profile
   end
 end
