@@ -1,0 +1,10 @@
+<div id="profile-navigation-bar">
+    <p><%= link_to t('profiles.views.show.edit_profile_link'), edit_profile_path(@profile) if @profile.user == current_user %></p>
+</div>
+<div id="profile-info">
+    <p><%= @profile.username %></p>
+    <p><%= @profile.full_name if @profile.full_name.present? %></p>
+    <p><%= @profile.bio if @profile.bio.present?%></p>
+    <p><%= @profile.country if @profile.country.present? %></p>
+    <p><%= t('profiles.views.show.age', age: @profile.age) if @profile.birth_date.present? %></p>
+</div>

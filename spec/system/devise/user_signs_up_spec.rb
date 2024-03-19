@@ -4,6 +4,7 @@ RSpec.describe 'User signs up, starting from the homepage', type: :system do
   it 'successfully' do
     visit root_path
     click_on 'Inscrever-se'
+    fill_in 'Nome de usuário', with: 'elBillyPampers'
     fill_in 'E-mail', with: 'billy@pampers.com'
     fill_in 'Senha', with: '123456'
     fill_in 'Confirme sua senha', with: '123456'
@@ -13,7 +14,7 @@ RSpec.describe 'User signs up, starting from the homepage', type: :system do
     expect(User.last.email).to eq 'billy@pampers.com'
     expect(page).to have_content('Bem vindo! Você realizou seu registro com sucesso.')
     expect(page).to have_current_path(root_path)
-    expect(page).to have_content 'billy@pampers.com'
+    expect(page).to have_content 'elBillyPampers'
     expect(page).to have_button 'Sair'
     expect(page).not_to have_link 'Inscrever-se', href: new_user_registration_path
     expect(page).not_to have_link 'Login', href: new_user_session_path
@@ -33,8 +34,22 @@ RSpec.describe 'User signs up, starting from the homepage', type: :system do
       expect(page).to have_content 'E-mail não pode ficar em branco'
     end
 
+    it 'fails to provide an username' do
+      visit root_path
+      click_on 'Inscrever-se'
+      fill_in 'Nome de usuário', with: ''
+      fill_in 'E-mail', with: 'peyton@manning.com'
+      fill_in 'Senha', with: '123456'
+      fill_in 'Confirme sua senha', with: '123456'
+      click_on 'Cadastrar'
+
+      expect(User.count).to eq 0
+      expect(page).to have_content 'Não foi possível salvar usuário'
+      expect(page).to have_content 'Nome de usuário não pode ficar em branco'
+    end
+
     it 'uses an already registered e-mail address' do
-      User.create!(email: 'peyton@manning.com', password: 'laserqb18')
+      User.create!(username: 'sheriff18', email: 'peyton@manning.com', password: 'laserqb18')
 
       visit root_path
       click_on 'Inscrever-se'

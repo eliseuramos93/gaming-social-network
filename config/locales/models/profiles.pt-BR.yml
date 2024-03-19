@@ -1,0 +1,19 @@
+pt-BR:
+  activerecord:
+    models:
+      profile:
+        one: "Perfil"
+        other: "Perfis"
+    attributes:
+      profile:
+        bio: "Bio"
+        birth_date: "Data de nascimento"
+        country: "País"
+        full_name: "Nome completo"
+  profiles:
+    update:
+      success: "Seu perfil foi alterado com sucesso"
+    views:
+      show:
+        age: "%{age} anos"
+        edit_profile_link: "Editar perfil"

@@ -1,3 +1,4 @@
 pt-BR:
   buttons:
-    create_user: Cadastrar
+    create_user: "Cadastrar"
+    save_changes: "Salvar"
