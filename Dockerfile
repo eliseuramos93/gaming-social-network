@@ -2,6 +2,9 @@ FROM ruby:3.3.0
 
 # Instalando dependências do Rails
 RUN apt-get update -qq
+RUN apt-get install -y npm 
+RUN npm install -g yarn -y
+RUN npm install npx -g -y
 
 # Criando diretório de trabalho
 RUN mkdir /gaming_social_network
@@ -12,6 +15,9 @@ COPY Gemfile Gemfile.lock ./
 
 # Instalando gems
 RUN bundle install
+RUN yarn install
+RUN rails css:install:bootstrap
+RUN rails js:install:esbuild
 
 # Instalando Chrome no container
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - 
