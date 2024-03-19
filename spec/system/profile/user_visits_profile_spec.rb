@@ -21,7 +21,7 @@ RSpec.describe 'User visits profile', type: :system do
     it 'successfully and sees another user profile details' do
       peyton = User.create!(username: 'sheriff18', email: 'peyton@manning.com', password: 'broncocolts18')
       peyton.profile.update!(full_name: 'Peyton Manning', bio: 'Former NFL quarterback, 5x NFL MVP', country: 'USA',
-                           birth_date: '1976-03-24')
+                             birth_date: '1976-03-24')
       patrick = User.create!(username: 'grimreaper', email: 'patrick@mahomes.com', password: 'chiefskingdom')
 
       login_as patrick
